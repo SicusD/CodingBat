@@ -1,0 +1,9 @@
+public Map<String, String> pairs(String[] strings) {
+  Map<String,String> map = new HashMap<>();
+  for(String var: strings){
+    String first = var.substring(0,1);
+    String last = var.substring(var.length()-1, var.length());
+    map.put(first,last);
+  }
+  return map;
+}
