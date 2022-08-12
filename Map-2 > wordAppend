@@ -1,0 +1,16 @@
+public String wordAppend(String[] strings) {
+  String returnString = "";
+  Map<String,Integer> map = new HashMap<>();
+  for (String var: strings){
+    if(map.containsKey(var)){
+      map.put(var,map.get(var)+1);
+      if(map.get(var) != 0 && map.get(var) % 2 == 0){
+        returnString += var;
+      }
+    }
+    else{
+      map.put(var,1);
+    }
+  }
+  return returnString;
+}
