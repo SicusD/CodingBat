@@ -1,0 +1,12 @@
+public Map<String, Boolean> wordMultiple(String[] strings) {
+  Map<String, Boolean> map = new HashMap<>();
+  for(String var:strings){
+    if(map.containsKey(var)){
+      map.put(var, true);
+    }
+    else{
+      map.put(var, false);
+    }
+  }
+  return map;
+}
