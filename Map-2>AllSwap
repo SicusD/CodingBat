@@ -1,0 +1,21 @@
+public String[] allSwap(String[] strings) {
+  Map<String, String> map = new HashMap<>();
+  Map<String, Integer> mapIndex = new HashMap<>();
+  int index = 0;
+  for(String var: strings){
+    String firstChar = var.substring(0,1);
+    if(map.containsKey(firstChar)){
+      strings[index] = map.get(firstChar);
+      strings[mapIndex.get(firstChar)] = var;
+      map.remove(firstChar);
+      mapIndex.remove(firstChar);
+    }
+    else{
+      map.put(firstChar, var);
+      mapIndex.put(firstChar, index);
+    }
+    index++;
+  }
+  return strings;
+}
+// not as optimized as CB's, but its mine.
