@@ -1,0 +1,63 @@
+class Solution {
+    public int romanToInt(String s) {
+        int value = 0;
+        for(int i = 0; i<s.length();i++){
+            char rChar = s.charAt(i);
+            if(rChar == 'M'){
+                value += 1000;
+            }
+            else if(rChar == 'D'){
+                value += 500;
+            }
+            else if(rChar == 'C'){
+                if(i < s.length()-1){
+                if(s.charAt(i+1) == 'D'){
+                    value += 400;
+                    i++;
+                }
+                else if(s.charAt(i+1) == 'M'){
+                    value += 900;
+                    i++;
+                }
+                else{value += 100;}
+                }
+                else{value += 100;}
+            }
+            else if(rChar == 'L'){
+                value += 50;
+            }
+            else if(rChar == 'X'){
+                if(i < s.length()-1){
+                if(s.charAt(i+1) == 'L'){
+                    value += 40;
+                    i++;
+                }
+                else if(s.charAt(i+1) == 'C'){
+                    value += 90;
+                    i++;
+                }
+                else{value += 10;}
+                }
+                else{value += 10;}
+            }
+            else if(rChar == 'V'){
+                value += 5;
+            }
+            else if(rChar == 'I'){
+                if(i < s.length()-1){
+                    if(s.charAt(i+1) == 'V'){
+                        value += 4;
+                        i++;
+                }
+                    else if(s.charAt(i+1) == 'X'){
+                        value += 9;
+                        i++;
+                    }
+                    else{value += 1;}
+                }
+                else{value += 1;}
+            }  
+        }
+        return value;
+    }
+}
